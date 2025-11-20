@@ -1,114 +1,45 @@
-/* Basic reset */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  font-family:Inter,Arial, Helvetica, sans-serif;
+  font-family:Inter,Arial,Helvetica,sans-serif;
   background:#111;
   overflow:hidden;
 }
 
-/* START SCREEN */
+/* Start screen */
 .screen{
-  position:fixed;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:14px;
+  position:fixed; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:12px;
   background: url('assets/background.png') center/cover no-repeat;
   background-size: cover;
   z-index:40;
 }
-.title{
-  color:#fff;
-  font-size:48px;
-  text-shadow:0 6px 18px rgba(0,0,0,0.6);
-}
-.btn-start{
-  padding:14px 28px;
-  font-size:20px;
-  border-radius:10px;
-  border:none;
-  background:#ff7a18;
-  color:#fff;
-  cursor:pointer;
-}
+.title{color:#fff;font-size:44px;text-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.btn-start{padding:12px 26px;font-size:18px;border-radius:10px;border:none;background:#ff7a18;color:#fff;cursor:pointer}
 .hint{color:rgba(255,255,255,0.9)}
 
-/* Canvas: will scale to full viewport but internal resolution 900x500 */
-#gameCanvas{
-  display:block;
-  width:100vw;
-  height:100vh;
-  background: #87CEEB; /* fallback */
-  image-rendering: pixelated;
-}
+/* Canvas (stretched by CSS) */
+#gameCanvas{display:block;width:100vw;height:100vh;background:#87CEEB;image-rendering:pixelated}
 
-/* QUESTION BOX modal */
-#questionBox{
-  position:fixed;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(0,0,0,0.55);
-  z-index:60;
-  visibility:hidden;
-  opacity:0;
-  transition:opacity .18s ease, visibility .18s;
-}
-#questionBox.show{
-  visibility:visible; opacity:1;
-}
-#questionContent{
-  width:min(460px,92%);
-  background:#fff;
-  padding:18px;
-  border-radius:12px;
-  text-align:center;
-  box-shadow:0 12px 40px rgba(0,0,0,0.4);
-}
-#questionText{font-size:18px;margin-bottom:12px}
-#answerInput{
-  width:100%;
-  padding:10px 12px;
-  border-radius:8px;border:1px solid #ccc;margin-bottom:12px;font-size:16px;
-}
+/* Modal question */
+#questionBox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.55);z-index:60;visibility:hidden;opacity:0;transition:opacity .14s}
+#questionBox.show{visibility:visible;opacity:1}
+#questionContent{width:min(480px,94%);background:#fff;padding:16px;border-radius:10px;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,0.35)}
+#answerInput{width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:10px}
 .row{display:flex;gap:8px;justify-content:center}
-button.secondary{background:#eee;border:1px solid #ddd;padding:10px 16px;border-radius:8px;cursor:pointer}
-#answerBtn{background:#287bff;color:#fff;padding:10px 16px;border-radius:8px;border:none;cursor:pointer}
+.secondary{background:#eee;padding:8px 14px;border-radius:8px;border:1px solid #ddd}
+#answerBtn{background:#287bff;color:#fff;padding:8px 14px;border-radius:8px;border:none}
 
-/* Mobile controls */
-#mobileControls{
-  position:fixed;
-  bottom:14px;
-  left:0;
-  right:0;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  gap:10px;
-  padding:0 12px;
-  z-index:55;
-  pointer-events:none; /* enable per-button pointer via button style */
-}
-.m-btn{
-  pointer-events:all;
-  width:64px;height:64px;border-radius:50%;
-  border:none;background:rgba(255,255,255,0.85);
-  font-size:18px;
-  box-shadow:0 6px 14px rgba(0,0,0,0.25);
-}
+/* mobile controls */
+#mobileControls{position:fixed;bottom:12px;left:0;right:0;display:flex;justify-content:space-around;align-items:center;gap:10px;padding:0 12px;z-index:55}
+.m-btn{width:64px;height:64px;border-radius:50%;border:none;background:rgba(255,255,255,0.9);font-size:18px;box-shadow:0 6px 14px rgba(0,0,0,0.2)}
 .m-btn.attack{background:#ff5c5c;color:#fff}
 
-/* hide mobile controls on desktop by default; show via JS when small screen */
-@media (min-width:900px){
-  #mobileControls{display:none}
-}
+/* hide mobile controls on wide screens; shown via JS for small devices */
+@media (min-width:900px){ #mobileControls{display:none} }
 
-/* small touches */
 @media (max-width:420px){
-  .title{font-size:36px}
-  .btn-start{font-size:18px;padding:12px 20px}
+  .title{font-size:34px}
+  .btn-start{font-size:16px;padding:10px 18px}
 }
