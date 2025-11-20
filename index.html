@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<title>NEblox Game - Mario-style (B)</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- START SCREEN -->
+<div id="startScreen" class="screen">
+  <h1 class="title">NEblox</h1>
+  <button id="startBtn" class="btn-start">Mainkan</button>
+  <p class="hint">Arrow ← →: gerak • Space: lompat • X / tombol merah: serang</p>
+</div>
+
+<!-- GAME CANVAS -->
+<canvas id="gameCanvas" width="900" height="500"></canvas>
+
+<!-- QUESTION/MODAL -->
+<div id="questionBox" aria-hidden="true">
+  <div id="questionContent">
+    <p id="questionText">Pertanyaan ...</p>
+    <input id="answerInput" placeholder="Jawaban..." autocomplete="off"/>
+    <div class="row">
+      <button id="answerBtn">Kirim</button>
+      <button id="cancelBtn" class="secondary">Batal</button>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE CONTROLS -->
+<div id="mobileControls" aria-hidden="true">
+  <button id="leftBtn" class="m-btn">◀</button>
+  <button id="rightBtn" class="m-btn">▶</button>
+  <button id="jumpBtn" class="m-btn">JUMP</button>
+  <button id="attackBtn" class="m-btn attack">X</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
