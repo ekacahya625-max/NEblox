@@ -72,7 +72,9 @@ let door = {
 const questions = [
   { q: "Ibukota Indonesia?", a: "jakarta" },
   { q: "Planet terbesar?", a: "jupiter" },
-  { q: "Gunung tertinggi?", a: "everest" }
+  { q: "Gunung tertinggi?", a: "everest" },
+  { q: "2 x 5 =...", a: "10" },
+  { q: "Siapa nama presiden ketiga Indonesia?", a: "Bj Habibie"},
 ];
 
 // Input state
